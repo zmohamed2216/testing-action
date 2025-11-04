@@ -1,0 +1,45 @@
+name: Testing calculator
+
+on:
+	push:
+		branches:
+			-master
+	pull_request:
+		branches:
+			-master
+jobs:
+	test_cases:
+		runs-on:ubuntu-latest
+		steps:
+			-uses: actions/checkout@v2
+			-name: install dependencies
+			-run: 
+				sudo apt-get install -y python3-pip
+				pip install -r requirements.txt
+			-name: run test cases
+			-run:
+				python3 - m unittest test_calculator.py
+	deploy:
+		needs: test_cases
+		runs-on: ubuntu-latest
+		steps:
+			uses: actions/checkout@v2
+			name: deploy application
+			run:
+				"Deploying Application..."
+	deploy2:
+		needs: test_cases
+		runs-on: ubuntu-latest
+		steps:
+			uses: actions/checkout@v2
+			name: deploy application
+			run:
+				"Deploying Application..."	
+	deploy3:
+		needs: test_cases
+		runs-on: ubuntu-latest
+		steps:
+			uses: actions/checkout@v2
+			name: deploy application
+			run:
+				"Deploying Application..."
