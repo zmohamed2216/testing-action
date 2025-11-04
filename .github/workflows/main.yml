@@ -1,7 +1,7 @@
 name: Testing calculator
 
 on:
-	push:
+	 push:
 		branches:
 			-master
 	pull_request:
